@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton mNextButton;
     private ImageButton mPrevButton;
     private TextView mQuestionTextView;
+    private Button mCheatButton;
 
     private TrueFalse[] mQuestionBank = new TrueFalse[] {
             new TrueFalse(R.string.question_oceans, true),
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
 
     private void updateQuestion() {
+        //Log.d(TAG, "Updating question text for question #" + mCurrentIndex, new Exception());
         int question = mQuestionBank[mCurrentIndex].getQuestion();
         mQuestionTextView.setText(question);
     }
@@ -106,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX,0);
         }
+
+        mCheatButton = (Button)findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start CheatActivity
+            }
+        });
 
     } // End of onCreate()
 
